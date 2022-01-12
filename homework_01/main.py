@@ -56,19 +56,13 @@ def filter_numbers(list_of_int_num, operation):
     <<< [2, 4]
     """
     if operation == ODD:
-        for i in list_of_int_num:
-            if isinstance(i, int):
-                list_of_output_data = list(filter(filter_even_num, list_of_int_num))
-                return list_of_output_data
+        list_of_output_data = list(filter(filter_even_num, list_of_int_num))
+        return list_of_output_data
     elif operation == EVEN:
-        for i in list_of_int_num:
-            if isinstance(i, int):
-                list_of_output_data = list(filter(filter_odd_num, list_of_int_num))
-                return list_of_output_data
+        list_of_output_data = list(filter(filter_odd_num, list_of_int_num))
+        return list_of_output_data
     elif operation == PRIME:
-        for i in list_of_int_num:
-            if isinstance(i, int):
-                list_of_output_data = list(filter(is_prime, list_of_int_num))
-                return list_of_output_data
+        list_of_output_data = list(filter(is_prime, list_of_int_num))
+        return list_of_output_data
     else:
         return False
