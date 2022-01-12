@@ -13,7 +13,7 @@ def power_numbers(*typles_convert_to_list):
     """
     list_of_data = []
     for i in typles_convert_to_list:
-        if type(i) == int:
+        if isinstance(i, int):
             data = i ** 2
             list_of_data.append(data)
     return list_of_data
@@ -26,17 +26,11 @@ PRIME = "prime"
 
 
 def filter_odd_num(num):
-    if (num % 2) == 0:
-        return True
-    else:
-        return False
+    return (num % 2) == 0
 
 
 def filter_even_num(num):
-    if (num % 2) != 0:
-        return True
-    else:
-        return False
+    return (num % 2) != 0
 
 
 def is_prime(n):
@@ -61,14 +55,20 @@ def filter_numbers(list_of_int_num, operation):
     >>> filter_numbers([2, 3, 4, 5], EVEN)
     <<< [2, 4]
     """
-    list_of_output_data = []
-    for i in list_of_int_num:
-        if type(i) == int:
-            if operation == "odd":
+    if operation == ODD:
+        for i in list_of_int_num:
+            if isinstance(i, int):
                 list_of_output_data = list(filter(filter_even_num, list_of_int_num))
-            elif operation == "even":
+                return list_of_output_data
+    elif operation == EVEN:
+        for i in list_of_int_num:
+            if isinstance(i, int):
                 list_of_output_data = list(filter(filter_odd_num, list_of_int_num))
-            elif operation == "prime":
+                return list_of_output_data
+    elif operation == PRIME:
+        for i in list_of_int_num:
+            if isinstance(i, int):
                 list_of_output_data = list(filter(is_prime, list_of_int_num))
-            return list_of_output_data
+                return list_of_output_data
+    else:
         return False
